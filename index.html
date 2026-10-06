@@ -1585,5 +1585,10 @@ toast(data.lang==='si'?'සූදානම්! දැන් පටන් ගම�
 applyBi();
 </script>
 
+<script>if('serviceWorker' in navigator&&location.protocol.startsWith('http')){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}</script>
+<script>
+/* make sure the setup wizard always renders its first step, whichever code path opens it */
+(function(){const _open=openModal;openModal=function(id){_open(id);if(id==='welcomeModal'){wzStep=1;try{wzRender()}catch(e){console.error(e)}}}})();
+</script>
 </body>
 </html>
