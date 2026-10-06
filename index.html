@@ -620,6 +620,42 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 @media(max-width:760px){.history-stats{grid-template-columns:1fr 1fr}.history-filter-box{align-items:stretch}.history-search{width:100%;min-width:0}.history-filters{width:100%;display:grid;grid-template-columns:1fr 1fr 1fr}.history-filters .field{min-width:0;width:100%}.history-item{grid-template-columns:34px minmax(0,1fr) 24px;gap:8px}.history-duration{display:none}.history-helper{font-size:9px}.session-detail-grid{grid-template-columns:1fr 1fr}.quick-start-steps{grid-template-columns:1fr 1fr}.focus-workspace.focus-running .focus-main-card{min-height:300px}}
 @media(max-width:430px){.history-stats{grid-template-columns:1fr}.history-filters{grid-template-columns:1fr}.history-toolbar-row{align-items:flex-start;flex-direction:column}.session-detail-grid{grid-template-columns:1fr}.history-item{padding:10px}.history-title{font-size:11px}}
 
+
+/* ===== MOBILE POLISH v5.6 ===== */
+html,body{overflow-x:hidden;max-width:100%}
+.section.grid.two-col>*,.analytics-grid>*{min-width:0}
+.row-left{flex:1}.row-title,.row-sub{overflow-wrap:anywhere}.score{flex:0 0 auto;white-space:nowrap}
+@media(max-width:900px){
+  .two-col{grid-template-columns:minmax(0,1fr)!important}
+}
+@media(max-width:760px){
+  .chart-card,.chart-sm{min-height:0;padding:14px}
+  .chart-card canvas,.chart-sm canvas{height:240px!important;max-width:100%}
+  #timePieChart{height:270px!important}
+  .list-card{padding:14px}
+  .section-head{flex-wrap:wrap;align-items:flex-start}
+  .section-head>.soft-btn,.section-head>.primary-btn{flex:0 0 auto;white-space:nowrap;padding:8px 12px;font-size:12px}
+  .section-head h3{font-size:15px}
+  .row{padding:12px 0;gap:12px}
+  .row-title{font-size:13px;line-height:1.35}
+  .row-sub{font-size:11px;line-height:1.45}
+  .score{font-size:13px}
+  .weak,.progress-card,.note-card{min-width:0;overflow-wrap:anywhere}
+  .table-wrap{-webkit-overflow-scrolling:touch}
+  .modal{max-height:94vh;border-radius:18px}
+  .modal-wrap{padding:10px;align-items:flex-end}
+  .modal-foot{position:sticky;bottom:0;background:var(--surface)}
+  .modal-foot>button{flex:1}
+  .history-item,.session{min-width:0}
+  .container{padding-bottom:96px}
+  input,select,textarea{font-size:16px}
+}
+@media(max-width:430px){
+  .kpi-value{font-size:22px}
+  .hero-card,.countdown-card,.goal-ring{padding:16px;min-height:0}
+  .next-action{flex-direction:column;align-items:stretch}
+  .next-action .primary-btn,.next-action .soft-btn{width:100%}
+}
 </style>
 </head>
 <body>
@@ -1433,7 +1469,7 @@ function updateCharts(){
  const labels=visibleSubjects().map(x=>x.name);
  const values=labels.map(x=>Math.round((hoursMap[x]||0)*10)/10);
  const colors=['#5b5bd6','#0f9d72','#d98a00','#df4b61','#2d7ff9','#8b5cf6','#14b8a6','#f97316','#64748b'];
- timePieChart=new Chart(pieCtx,{type:'doughnut',data:{labels:labels,datasets:[{data:values,backgroundColor:colors.slice(0,labels.length),borderColor:getComputedStyle(document.body).getPropertyValue('--surface'),borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'bottom',labels:{color:getComputedStyle(document.body).getPropertyValue('--text'),font:{size:10},boxWidth:12}}}}});
+ timePieChart=new Chart(pieCtx,{type:'doughnut',data:{labels:labels,datasets:[{data:values,backgroundColor:colors.slice(0,labels.length),borderColor:getComputedStyle(document.body).getPropertyValue('--surface'),borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'bottom',labels:{color:getComputedStyle(document.body).getPropertyValue('--text'),font:{size:11,family:getComputedStyle(document.body).fontFamily},boxWidth:12,padding:12}}}}});
 }
 function wireChartsResize(){window.clearTimeout(window._chartTimer);window._chartTimer=window.setTimeout(()=>[scoreLineChart,componentBarChart,timePieChart].forEach(c=>c&&c.resize()),60)}
 [...document.querySelectorAll('#sideNav button,#mobileNav button')].forEach(b=>b.addEventListener('click',()=>{const p=b.dataset.page;if(p)showPage(p);}));
