@@ -684,6 +684,21 @@ html,body{overflow-x:hidden;max-width:100%}
 }
 .backup-banner{display:none;margin:10px 0;padding:12px 14px;border:1px solid var(--line);border-left:4px solid var(--warning);background:var(--surface);border-radius:12px;font-size:13px;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .backup-banner.show{display:flex}
+
+.nav-more{margin-top:4px;border-top:1px solid rgba(255,255,255,.08);padding-top:6px}
+.nav-more summary{list-style:none;cursor:pointer;color:var(--navmuted);padding:11px 12px;border-radius:11px;font-weight:800;font-size:13px;display:flex;align-items:center;gap:10px}
+.nav-more summary::-webkit-details-marker{display:none}.nav-more summary:hover{background:#1b2430;color:#fff}
+.nav-more[open] summary::after{content:"▴";margin-left:auto}.nav-more:not([open]) summary::after{content:"▾";margin-left:auto}
+.nav-more button{width:100%}
+.countdown-unit:nth-child(n+3){display:none!important}
+.countdown-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.insights-btn{width:100%;margin:18px 0 6px;padding:14px 16px;border:1px dashed var(--line);border-radius:14px;background:var(--surface);color:var(--text);font-weight:800;font-size:14px;display:flex;justify-content:center;gap:10px}
+.insights-btn:hover{border-color:var(--primary);color:var(--primary)}
+.wz-dots{display:flex;gap:6px;margin-bottom:16px}.wz-dots i{flex:1;height:5px;border-radius:9px;background:var(--line)}.wz-dots i.on{background:var(--primary)}
+.wz-step{display:none}.wz-h{margin:0 0 14px;font-size:20px}
+.wz-sub{display:flex;align-items:center;gap:10px;margin-bottom:8px}.wz-sub b{width:24px;text-align:center;color:var(--muted)}
+.wz-step .lang-btn,.wz-step .mode-choice{padding:14px;font-size:15px}.lang-btn.active{border-color:var(--primary);color:var(--primary)}
+.nav button,.nav-more summary{min-height:44px}
 </style>
 </head>
 <body>
@@ -696,26 +711,14 @@ html,body{overflow-x:hidden;max-width:100%}
     <path d="M21.5 5.5 22.4 7l1.7.7-1.7.7-.9 1.5-.9-1.5-1.7-.7 1.7-.7.9-1.5Z" fill="white" opacity=".9"/>
   </svg>
 </div><div><h1>StudyFlow</h1><span id="brandSubtitle">Exam Result Tracker</span></div></div>
-    <nav class="nav" id="sideNav">
-      <button class="active" data-page="dashboard"><span class="ico">🏠</span><span data-i18n="navDashboard">Dashboard</span></button>
-      <button data-page="timer"><span class="ico focus-nav-icon" aria-hidden="true">
+    <nav class="nav" id="sideNav"><button class="active" data-page="dashboard"><span class="ico">🏠</span><span data-en="Today" data-si="අද">Today</span></button><button data-page="tasks"><span class="ico">✅</span><span data-en="Tasks" data-si="අද කරන්න වැඩ">Tasks</span></button><button data-page="timer"><span class="ico focus-nav-icon" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none">
     <circle class="focus-ring" cx="10" cy="14" r="7" stroke-width="2"/>
     <circle class="focus-dot" cx="10" cy="14" r="2.2"/>
     <path class="focus-ring" d="M10 7V4M7 4h6" stroke-width="2" stroke-linecap="round"/>
     <path class="focus-spark" d="M18.1 3.2l.85 1.85 1.85.85-1.85.85-.85 1.85-.85-1.85-1.85-.85 1.85-.85.85-1.85Z"/>
   </svg>
-</span><span data-i18n="navTimer">Focus Timer</span></button>
-      <button data-page="tasks"><span class="ico">✅</span><span>Study Tasks</span></button>
-      <button data-page="plan"><span class="ico">📚</span><span data-i18n="navPlan">Study Plan</span></button>
-      <button data-page="papers"><span class="ico">📝</span><span data-i18n="navPapers">Past Papers</span></button>
-      <button data-page="weakness"><span class="ico">🎯</span><span data-i18n="navWeak">Weakness Vault</span></button>
-      <button data-page="sessions"><span class="ico">🕘</span><span data-i18n="navSessions">Study History</span></button>
-      <button data-page="notes"><span class="ico">🧠</span><span>Study Notes</span></button>
-      <button data-page="questions"><span class="ico">❓</span><span>My Questions</span></button>
-      <button data-page="progress"><span class="ico">📈</span><span>Progress</span></button>
-      <button data-page="help"><span class="ico">💡</span><span>Help / උදව්</span></button>
-    </nav>
+</span><span data-en="Focus Timer" data-si="Focus Timer">Focus Timer</span></button><button data-page="papers"><span class="ico">📝</span><span data-en="Past Papers" data-si="පැරණි ප්‍රශ්න පත්‍ර">Past Papers</span></button><button data-page="progress"><span class="ico">📈</span><span data-en="Progress" data-si="ප්‍රගතිය">Progress</span></button><details class="nav-more" id="navMore"><summary><span class="ico">⋯</span><span data-en="More" data-si="තවත්">More</span></summary><button data-page="plan"><span class="ico">📚</span><span data-en="Study Plan" data-si="පාඩම් සැලැස්ම">Study Plan</span></button><button data-page="weakness"><span class="ico">🎯</span><span data-en="Weak Topics" data-si="අමාරු ටොපික්">Weak Topics</span></button><button data-page="sessions"><span class="ico">🕘</span><span data-en="Study History" data-si="අධ්‍යයන ඉතිහාසය">Study History</span></button><button data-page="notes"><span class="ico">🧠</span><span data-en="Notes" data-si="සටහන්">Notes</span></button><button data-page="questions"><span class="ico">❓</span><span data-en="My Questions" data-si="මගේ ප්‍රශ්න">My Questions</span></button><button data-page="help"><span class="ico">💡</span><span data-en="Help" data-si="උදව්">Help</span></button></details></nav>
     <div class="sidebar-foot"><div class="save-note">💾 <b data-i18n="savedAuto">Saved automatically</b><br><span data-i18n="savedNote">Your study data is saved automatically on this device.</span></div></div>
   </aside>
   <main class="main">
@@ -753,7 +756,11 @@ html,body{overflow-x:hidden;max-width:100%}
           <div class="countdown-date" id="heroCountdownDate">Set your exam date in Settings.</div>
         </div>
       </div>
-        <div class="dashboard-subject-strip">
+        <div class="hero">
+          <div class="card hero-card"><div class="eyebrow" data-i18n="today">Today</div><h3 id="todayHeadline">Start with one clear result.</h3><p id="todayDescription">Add your subjects and your first task. StudyFlow will keep the important things visible.</p><div class="next-action"><div><div class="next-label" data-i18n="bestNext">Best next action</div><div class="next-text" id="nextAction">Set up your exam</div></div><button class="primary-btn" id="nextActionBtn" onclick="handleNextAction()">Start</button></div></div>
+          <div class="card goal-ring"><div class="eyebrow" data-i18n="weeklyTarget">This week</div><div class="ring" id="weekRing" style="--pct:0"><div class="ring-center"><b id="weekPct">0%</b><span data-i18n="weeklyTargetShort">weekly target</span></div></div><div class="small" id="weekLabel">0 / 10 hours</div></div>
+        </div>
+        <button class="insights-btn" onclick="toggleInsights()"><span id="insightsLbl" data-en="See more insights (charts, stats)" data-si="වැඩි විස්තර බලන්න (charts, stats)">See more insights (charts, stats)</span><span id="insightsArrow">▾</span></button><div id="moreInsights" style="display:none"><div class="dashboard-subject-strip">
           <div class="dashboard-subject-label"><span data-i18n="dashboardSubjectLabel">Focus subject</span><span data-i18n="dashboardSubjectHint">Choose a subject to update the dashboard details.</span></div>
           <div class="subject-switch" id="dashboardSubjects"></div>
         </div>
@@ -763,10 +770,6 @@ html,body{overflow-x:hidden;max-width:100%}
           <div class="card kpi"><div class="kpi-head"><div><div class="kpi-label" data-i18n="kpiPapers">Past papers</div><div class="kpi-value" id="kpiPapers">0</div></div><div class="kpi-icon">📝</div></div><div class="bar"><span id="barPapers" style="width:0%"></span></div><div class="small" id="kpiPapersSub">0 components completed</div></div>
           <div class="card kpi"><div class="kpi-head"><div><div class="kpi-label" data-i18n="kpiHours">Study time</div><div class="kpi-value" id="kpiHours">0h</div></div><div class="kpi-icon">⏱️</div></div><div class="bar"><span id="barHours" style="width:0%"></span></div><div class="small" id="kpiHoursSub">This week</div></div>
           <div class="card kpi"><div class="kpi-head"><div><div class="kpi-label" data-i18n="kpiWeak">Weaknesses</div><div class="kpi-value" id="kpiWeak">0</div></div><div class="kpi-icon">🎯</div></div><div class="bar"><span id="barWeak" style="width:0%"></span></div><div class="small" id="kpiWeakSub">Active items</div></div>
-        </div>
-        <div class="hero">
-          <div class="card hero-card"><div class="eyebrow" data-i18n="today">Today</div><h3 id="todayHeadline">Start with one clear result.</h3><p id="todayDescription">Add your subjects and your first task. StudyFlow will keep the important things visible.</p><div class="next-action"><div><div class="next-label" data-i18n="bestNext">Best next action</div><div class="next-text" id="nextAction">Set up your exam</div></div><button class="primary-btn" id="nextActionBtn" onclick="handleNextAction()">Start</button></div></div>
-          <div class="card goal-ring"><div class="eyebrow" data-i18n="weeklyTarget">This week</div><div class="ring" id="weekRing" style="--pct:0"><div class="ring-center"><b id="weekPct">0%</b><span data-i18n="weeklyTargetShort">weekly target</span></div></div><div class="small" id="weekLabel">0 / 10 hours</div></div>
         </div>
         <div class="section"><div class="section-head"><div><h3 data-i18n="subjectHealth">Subject health</h3><p data-i18n="subjectHealthDesc">Which subject needs attention right now?</p></div><button class="soft-btn" onclick="openModal('settingsModal')" data-i18n="editSubjects">Edit subjects</button></div><div class="grid subject-cards" id="subjectCards"></div></div>
         <div class="section">
@@ -792,6 +795,7 @@ html,body{overflow-x:hidden;max-width:100%}
           <div class="card list-card"><div class="section-head"><div><h3 data-i18n="recentSessions">Recent sessions</h3><p data-i18n="recentSessionsDesc">Your latest study outputs.</p></div><button class="soft-btn" onclick="showPage('sessions')" data-i18n="viewAll">View all</button></div><div id="recentSessions"></div></div>
         </div>
         <div class="section"><div class="card list-card"><div class="section-head"><div><h3 data-i18n="topWeaknesses">Top weaknesses</h3><p data-i18n="topWeaknessesDesc">Fix these before adding more new topics.</p></div><button class="soft-btn" onclick="showPage('weakness')" data-i18n="openVault">Open vault</button></div><div id="topWeaknesses"></div></div></div>
+      </div>
       </section>
 
       <!-- FOCUS TIMER -->
@@ -1073,7 +1077,7 @@ html,body{overflow-x:hidden;max-width:100%}
 <!-- WEAKNESS MODAL -->
 <div class="modal-wrap" id="weaknessModal"><div class="modal"><div class="modal-head"><h3>🎯 <span data-i18n="weakModalTitle">Add a weakness</span></h3><button class="icon-btn" onclick="closeModal('weaknessModal')">✕</button></div><div class="modal-body"><div class="form-grid"><div class="form-row"><label class="label" data-i18n="subjectLabel">Subject</label><select class="field" id="weakSubject"></select></div><div class="form-row"><label class="label" data-i18n="scoreLabel">Score (%)</label><input class="field" id="weakScore" type="number" min="0" max="100" placeholder="42"></div><div class="form-row full"><label class="label" data-i18n="topicLabel">Topic</label><input class="field" id="weakTopic" placeholder="e.g. Kirchhoff calculations"></div><div class="form-row full"><label class="label" data-i18n="whyWrongLabel">Why was it wrong?</label><textarea class="field" id="weakNote" rows="3" placeholder="I knew the formula but used the wrong sign."></textarea></div><div class="form-row full"><label class="label" data-i18n="nextActionLabel">Next revision action</label><input class="field" id="weakAction" placeholder="Do 10 more calculation questions"></div></div></div><div class="modal-foot"><button class="soft-btn" onclick="closeModal('weaknessModal')" data-i18n="cancel">Cancel</button><button class="primary-btn" onclick="saveWeakness()" data-i18n="saveWeakness">Save weakness</button></div></div></div>
 <!-- WELCOME / ONBOARDING -->
-<div class="modal-wrap" id="welcomeModal"><div class="modal"><div class="modal-head"><h3>👋 Welcome to StudyFlow</h3><button class="icon-btn" onclick="dismissWelcome()">✕</button></div><div class="modal-body"><div class="help-hero card" style="margin:0"><div class="eyebrow">START HERE</div><h2>Study smarter, not just longer.</h2><p>මුලින් basic setup එක complete කරමු. ඊට පස්සේ app එක ඔයාට ඊළඟට කරන්න ඕන වැඩේ පෙන්වනවා — plan, focus, result, weakness කියන cycle එක ලේසි වෙයි.</p><div class="quick-start-steps" style="margin-top:12px"><div><b>1</b><span>Exam + Subjects</span></div><div><b>2</b><span>Today task</span></div><div><b>3</b><span>Start Focus</span></div><div><b>4</b><span>Record result</span></div></div><div class="help-tip" style="margin-top:12px"><b>Tip:</b> හැම data එකක්ම මුලින්ම පුරවන්න ඕන නැහැ. අද කරන්න ඕන එකෙන් පටන් ගන්න.</div></div></div><div class="modal-foot"><button class="soft-btn" onclick="dismissWelcome()">Later</button><button class="primary-btn" onclick="closeModal('welcomeModal');openModal('settingsModal')">⚙️ Set up StudyFlow</button></div></div></div>
+<div class="modal-wrap" id="welcomeModal"><div class="modal" style="max-width:520px"><div class="modal-head"><h3>👋 StudyFlow</h3><button class="icon-btn" aria-label="Close" onclick="dismissWelcome()">✕</button></div><div class="modal-body"><div class="wz-dots" id="wzDots"><i></i><i></i><i></i><i></i></div><div class="wz-step" id="wz1"><h2 class="wz-h" data-en="Welcome! Pick your language" data-si="ආයුබෝවන්! භාෂාව තෝරන්න">x</h2><div class="lang-row"><button type="button" id="wzLangEN" class="soft-btn lang-btn" onclick="wzLang('en')">English</button><button type="button" id="wzLangSI" class="soft-btn lang-btn" onclick="wzLang('si')">සිංහල</button></div><label class="label" style="margin-top:14px" data-en="Your name (optional)" data-si="ඔයාගේ නම (අවශ්‍ය නැත්නම් skip)">x</label><input class="field" id="wzName" autocomplete="off"></div><div class="wz-step" id="wz2"><h2 class="wz-h" data-en="Which exam are you preparing for?" data-si="මොන විභාගයටද ලෑස්ති වෙන්නේ?">x</h2><div class="mode-toggle"><button type="button" class="mode-choice" id="wzAL" onclick="wzType('AL')"><b>A/L</b></button><button type="button" class="mode-choice" id="wzOL" onclick="wzType('OL')"><b>O/L</b></button></div><label class="label" style="margin-top:14px" data-en="Exam date" data-si="විභාග දිනය">x</label><input class="field" type="date" id="wzDate"><div class="helper" data-en="Not sure yet? Leave it empty, you can add it later." data-si="තවම දන්නේ නැත්නම් හිස්ව තියන්න, පස්සේ දාන්න පුළුවන්.">x</div></div><div class="wz-step" id="wz3"><h2 class="wz-h" data-en="Your subjects" data-si="ඔයාගේ විෂයන්">x</h2><div id="wzSubjects"></div><div class="helper" data-en="Rename them if needed. More options are in Settings." data-si="ඕන නම් නම වෙනස් කරන්න. තව options Settings එකේ තියෙනවා.">x</div></div><div class="wz-step" id="wz4"><h2 class="wz-h" data-en="What will you study today?" data-si="අද මොනවද කරන්නේ?">x</h2><input class="field" id="wzTask" autocomplete="off"><select class="field" id="wzTaskSub" style="margin-top:10px"></select><div class="helper" data-en="Just one small task is enough to start." data-si="පටන් ගන්න පොඩි task එකක් ඇති.">x</div></div></div><div class="modal-foot"><button class="soft-btn" id="wzBack" onclick="wzBack()" data-en="← Back" data-si="← ආපසු">x</button><button class="primary-btn" id="wzNextBtn" onclick="wzNext()">Next</button></div></div></div>
 
 <!-- TASK MODAL -->
 <div class="modal-wrap" id="taskModal"><div class="modal"><div class="modal-head"><h3>✅ <span>Study task</span></h3><button class="icon-btn" onclick="closeModal('taskModal')">✕</button></div><div class="modal-body"><div class="form-grid"><div class="form-row full"><label class="label">Task</label><input class="field" id="taskTitle" placeholder="e.g. ICT — Do 2024 MCQ 20 questions"></div><div class="form-row"><label class="label">Subject</label><select class="field" id="taskSubject"></select></div><div class="form-row"><label class="label">Type</label><select class="field" id="taskType"><option value="study">Study</option><option value="paper">Past paper</option><option value="revision">Revision</option><option value="practice">Practice</option><option value="review">Review</option></select></div><div class="form-row"><label class="label">Priority</label><select class="field" id="taskPriority"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select></div><div class="form-row"><label class="label">Due date</label><input class="field" id="taskDue" type="date"></div><div class="form-row"><label class="label">Estimated minutes</label><input class="field" id="taskEstimate" type="number" min="1" max="600" value="30"></div><div class="form-row full"><label class="label">Result / output (optional)</label><input class="field" id="taskResult" placeholder="e.g. 18/20, 72%, 3 sub-topics"></div><div class="form-row full"><label class="label">Note</label><textarea class="field" id="taskNote" rows="3" placeholder="What should happen when this is done?"></textarea></div></div></div><div class="modal-foot"><button class="soft-btn" onclick="closeModal('taskModal')">Cancel</button><button class="primary-btn" onclick="saveTask()">Save task</button></div></div></div>
@@ -1207,7 +1211,7 @@ function countdownParts(){const target=examTarget();if(!target)return null;const
 function examDays(){const target=examTarget();if(!target)return null;return Math.max(0,Math.ceil((target-new Date())/86400000))}
 function formatDate(s){if(!s)return '';try{return new Date(s+'T00:00:00').toLocaleDateString(data.lang==='si'?'si-LK':'en-US',{year:'numeric',month:'short',day:'numeric'})}catch(e){return s}}
 function renderSubjectPills(target){const box=document.getElementById(target);if(!box)return;box.innerHTML=visibleSubjects().map((s,i)=>`<button class="subj-pill ${i===activeSubject?'active':''}" onclick="setSubject(${i})">${esc(s.name)}</button>`).join('')}
-function applyLanguage(){document.documentElement.lang=data.lang==='si'?'si':'en';document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=t(el.dataset.i18n));document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));document.getElementById('langEN')?.classList.toggle('active',data.lang==='en');document.getElementById('langSI')?.classList.toggle('active',data.lang==='si');const brand=document.getElementById('brandSubtitle');if(brand)brand.textContent=t('brandSubtitle')}
+function applyLanguage(){applyBi();document.documentElement.lang=data.lang==='si'?'si':'en';document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=t(el.dataset.i18n));document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));document.getElementById('langEN')?.classList.toggle('active',data.lang==='en');document.getElementById('langSI')?.classList.toggle('active',data.lang==='si');const brand=document.getElementById('brandSubtitle');if(brand)brand.textContent=t('brandSubtitle')}
 const INSPIRATION={en:[
  'You do not need a perfect day. You need one real result today.',
  'The goal is not to study forever. The goal is to become ready.',
@@ -1316,7 +1320,7 @@ function render(){migrateCurrent(data);save();document.body.classList.toggle('da
 function sidebarStorageKey(){return 'studyflow_sidebar_hidden_v1'}
 function applySidebarState(){const app=document.getElementById('appShell');if(!app)return;const hidden=localStorage.getItem(sidebarStorageKey())==='1';app.classList.toggle('sidebar-hidden',hidden);const b=document.getElementById('sidebarToggle');if(b){b.textContent=hidden?'☰':'◀';b.title=hidden?'Show StudyFlow':'Hide StudyFlow'}const fb=document.getElementById('sidebarFloatToggle');if(fb){fb.textContent=hidden?'☰':'◀';fb.title=hidden?'Show StudyFlow':'Hide StudyFlow'}}
 function toggleSidebar(){const app=document.getElementById('appShell');if(!app)return;const hidden=!app.classList.contains('sidebar-hidden');app.classList.toggle('sidebar-hidden',hidden);localStorage.setItem(sidebarStorageKey(),hidden?'1':'0');applySidebarState()}
-function showPage(p){currentPage=p;document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const page=document.getElementById('page-'+p);if(page)page.classList.add('active');document.querySelectorAll('#sideNav button,#mobileNav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));if(p==='dashboard')setTimeout(updateCharts,30);if(p==='timer')setTimeout(()=>{renderFocusTodayStats();refreshFocusSoundUI();updateTimerUI()},20);if(p==='progress')setTimeout(renderProgress,20);if(p==='tasks')setTimeout(renderTasks,20);if(p==='notes')setTimeout(renderNotes,20);if(p==='questions')setTimeout(renderQuestions,20);if(p==='sessions')setTimeout(renderSessions,20);window.scrollTo({top:0,behavior:'smooth'})}
+function showPage(p){currentPage=p;document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const page=document.getElementById('page-'+p);if(page)page.classList.add('active');document.querySelectorAll('#sideNav button,#mobileNav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));if(p==='dashboard')setTimeout(updateCharts,30);if(p==='timer')setTimeout(()=>{renderFocusTodayStats();refreshFocusSoundUI();updateTimerUI()},20);if(p==='progress')setTimeout(renderProgress,20);if(p==='tasks')setTimeout(renderTasks,20);if(p==='notes')setTimeout(renderNotes,20);if(p==='questions')setTimeout(renderQuestions,20);if(p==='sessions')setTimeout(renderSessions,20);window.scrollTo({top:0,behavior:'smooth'});const nm=document.getElementById('navMore');if(nm&&nm.querySelector('button.active'))nm.open=true}
 function setSubject(i){activeSubject=i;data.activeSubject=i;if(!studyTimer.running){studyTimer.subject=visibleSubjects()[i]?.name||''}save();render()}
 function subjectTrend(s){const scored=(s.papers||[]).map(p=>totalPaperScore(p)).filter(v=>v!=null);if(scored.length<2)return null;const prev=scored[scored.length-2],latest=scored[scored.length-1];return {latest,prev,delta:Math.round((latest-prev)*10)/10}}
 function renderDashboard(){
@@ -1454,7 +1458,7 @@ function clearSubject(i){const s=visibleSubjects()[i];if(!s)return;s.name='Subje
 function saveSettings(){const name=document.getElementById('setName').value.trim()||'Student';data.name=name;data.onboarded=true;data.weeklyTarget=Math.max(1,Number(document.getElementById('setWeekly').value)||10);data.examDate=document.getElementById('setExamDate').value||'';data.examName=document.getElementById('setExamName').value.trim()||(data.examType==='OL'?'O/L':'A/L');data.startYear=Math.min(2100,Number(document.getElementById('setStart').value)||2015);data.endYear=Math.max(data.startYear,Math.min(2100,Number(document.getElementById('setEnd').value)||2026));visibleSubjects().forEach((s,i)=>{const input=document.getElementById('setSub'+i);if(input&&input.value.trim())s.name=input.value.trim()});ensureYears(data);save();closeModal('settingsModal');render();toast(data.lang==='si'?'Settings Save කළා':'Settings saved')}
 function loadSettings(){document.getElementById('setName').value=data.name||'Student';document.getElementById('setWeekly').value=data.weeklyTarget||10;document.getElementById('setExamDate').value=data.examDate||'';document.getElementById('setExamName').value=data.examName||'';document.getElementById('setStart').value=data.startYear||2015;document.getElementById('setEnd').value=data.endYear||2026;renderSettingsEditor();applyLanguage()}
 function loadDemoData(){if(!confirm(data.lang==='si'?'Demo data load කරන්නද? මේ device එකේ current StudyFlow data replace වෙයි.':'Load demo data? This will replace the current StudyFlow data on this device.'))return;data=demoDefaults();activeSubject=0;save();closeModal('settingsModal');render();loadSettings();toast(data.lang==='si'?'Demo data load කළා':'Demo data loaded')}
-function resetAllData(){if(!confirm(data.lang==='si'?'StudyFlow එක සම්පූර්ණයෙන් Reset කරන්නද? මේකෙන් මේ Device එකේ Save වෙලා තියෙන Data මැකෙනවා.':'Reset StudyFlow completely? This will erase the saved data on this device.'))return;data=blankDefaults();normalizeSubjects(data);ensureYears(data);data.onboarded=false;activeSubject=0;save();closeModal('settingsModal');render();loadSettings();setTimeout(()=>openModal('welcomeModal'),250);toast(data.lang==='si'?'Reset කළා':'Reset complete')}
+function resetAllData(){if(!confirm(data.lang==='si'?'StudyFlow එක සම්පූර්ණයෙන් Reset කරන්නද? මේකෙන් මේ Device එකේ Save වෙලා තියෙන Data මැකෙනවා.':'Reset StudyFlow completely? This will erase the saved data on this device.'))return;data=blankDefaults();normalizeSubjects(data);ensureYears(data);data.onboarded=false;activeSubject=0;save();closeModal('settingsModal');render();loadSettings();setTimeout(()=>(wzStep=1,openModal('welcomeModal'),wzRender()),250);toast(data.lang==='si'?'Reset කළා':'Reset complete')}
 function toggleTheme(){data.theme=data.theme==='dark'?'light':'dark';save();render()}
 function backup(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`StudyFlow_Backup_${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
 function importBackup(){document.getElementById('importFile').click()}
@@ -1549,6 +1553,36 @@ window.addEventListener('click',e=>{if(e.target.classList?.contains('modal-wrap'
  window.addEventListener('load',()=>{bannerInit();dashInit()});
  if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 })();
+
+var wzStep=1;
+function applyBi(){const si=typeof data!=='undefined'&&data&&data.lang==='si';document.querySelectorAll('[data-en]').forEach(el=>{el.textContent=si?el.dataset.si:el.dataset.en})}
+function toggleInsights(){const box=document.getElementById('moreInsights'),open=box.style.display==='none';box.style.display=open?'block':'none';const l=document.getElementById('insightsLbl');l.dataset.en=open?'Hide details':'See more insights (charts, stats)';l.dataset.si=open?'විස්තර සඟවන්න':'වැඩි විස්තර බලන්න (charts, stats)';document.getElementById('insightsArrow').textContent=open?'▴':'▾';applyBi();if(open)setTimeout(()=>{try{updateCharts()}catch(e){}},40)}
+function wzEsc(v){return String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function wzRender(){const si=data.lang==='si';for(let i=1;i<=4;i++)document.getElementById('wz'+i).style.display=i===wzStep?'block':'none';
+document.querySelectorAll('#wzDots i').forEach((d,i)=>d.classList.toggle('on',i<wzStep));
+document.getElementById('wzBack').style.visibility=wzStep===1?'hidden':'visible';
+document.getElementById('wzNextBtn').textContent=wzStep===4?(si?'✓ පටන් ගමු':'✓ Start studying'):(si?'ඊළඟට →':'Next →');
+document.getElementById('wzLangEN').classList.toggle('active',!si);document.getElementById('wzLangSI').classList.toggle('active',si);
+document.getElementById('wzAL').classList.toggle('active',data.examType!=='OL');document.getElementById('wzOL').classList.toggle('active',data.examType==='OL');
+document.getElementById('wzName').placeholder=si?'උදා: කමල්':'e.g. Kamal';
+document.getElementById('wzTask').placeholder=si?'උදා: Chemistry — Atomic structure notes කියවන්න':'e.g. Read Atomic Structure notes';
+if(document.getElementById('wzDate').value===''&&data.examDate)document.getElementById('wzDate').value=data.examDate;
+if(wzStep===3)document.getElementById('wzSubjects').innerHTML=visibleSubjects().map((x,i)=>'<div class="wz-sub"><b>'+(i+1)+'</b><input class="field" id="wzSub'+i+'" value="'+wzEsc(x.name)+'"></div>').join('');
+if(wzStep===4)document.getElementById('wzTaskSub').innerHTML=visibleSubjects().map(x=>'<option>'+wzEsc(x.name)+'</option>').join('');
+applyBi();document.getElementById('wzNextBtn').textContent=wzStep===4?(si?'✓ පටන් ගමු':'✓ Start studying'):(si?'ඊළඟට →':'Next →')}
+function wzLang(l){setLanguage(l);wzRender()}
+function wzType(t){chooseExamType(t);wzRender()}
+function wzBack(){if(wzStep>1){wzStep--;wzRender()}}
+function wzNext(){
+if(wzStep===1){const n=document.getElementById('wzName').value.trim();if(n)data.name=n}
+if(wzStep===2){const d=document.getElementById('wzDate').value;data.examDate=d||'';data.examName=(data.examType==='OL'?'O/L':'A/L')+(d?' '+d.slice(0,4):'')}
+if(wzStep===3){visibleSubjects().forEach((x,i)=>{const el=document.getElementById('wzSub'+i);if(el&&el.value.trim())x.name=el.value.trim()})}
+if(wzStep<4){save();wzStep++;wzRender();return}
+const title=document.getElementById('wzTask').value.trim();
+if(title){data.tasks.push({id:uid('task'),subjectName:document.getElementById('wzTaskSub').value,title,type:'study',priority:'high',due:todayISO(),estimate:30,result:'',note:'',completed:false,createdAt:Date.now(),completedAt:null,sourceWeaknessId:''})}
+data.onboarded=true;save();closeModal('welcomeModal');loadSettings();render();showPage('dashboard');
+toast(data.lang==='si'?'සූදානම්! දැන් පටන් ගමු 🎉':'All set! Let\u2019s start 🎉')}
+applyBi();
 </script>
 
 </body>
